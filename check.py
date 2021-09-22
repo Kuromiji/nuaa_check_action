@@ -124,16 +124,26 @@ def get_uid_id(cookies):
 def check(cookies, geo_api_info, id, uid):
     # Post的data，如果你是勇士可以尝试给这个打上注释，老谜语人了，看不懂ヾ(•ω•`)o
     data = {
-        'sfzhux': '0',
-        'zhuxdz': '',
-        'szgj': '',
+        'sfzx': '1',    # 是否在校
+        'sfzhux': '1',  # 是否住校
+        'zhuxdz': '',   # 住校地址(默认上次)
+        'szgj': '',     # 所在国家(自动获取)
         'szcs': '',
         'szgjcs': '',
-        'sfjwfh': '0',
+        'sfjwfh': '0',  # 是否在中高风险地区(默认上次)
+        'dqsfzgfxszqs': '0',    # 当前是否在中高风险区所在区市 0=否 (默认上次)
+        'gqsfyzgfxljs': '0',    # 过去21天内是否有中高风险区旅居史 0=否 (默认上次)
+        'gqsfyqzfhryjc': '0',   # 过去21天内是否与中高风险人员接触 0=否 (默认上次)
+        'sfyjwljqyhg': '0',     # 28天内是否有境外旅居史且已经回国 0=否 (默认上次)
+        'nuaaxgymjzqk': '1',    # 新冠疫苗接种情况 123=两针一针未接种 (默认上次)
+        'ifcyglq': '0',    # 是否处于隔离期 0=否 (默认上次)
         'sfyjsjwfh': '0',
         'sfjcjwfh': '0',
         'sflznjcjwfh': '0',
-        'sflqjkm': '4',
+        'sflqjkm': '4', # 是否拥有苏康码 4=是 0=否
+        'skmcolor': '1',# 新-苏康码颜色 123=绿黄红
+        'zrwjtw': '1',# 新-昨日晚间体温 1234=低-高
+        'jrzjtw': '1',# 新-今日早间体温 1234=低-高
         'jkmys': '1',
         'sfjtgfxdq': '0',
         'tw': '2',
@@ -150,7 +160,6 @@ def check(cookies, geo_api_info, id, uid):
                  + ' ' + geo_api_info['addressComponent']['district'],
         'province': geo_api_info['addressComponent']['province'],
         'city': geo_api_info['addressComponent']['city'],
-        'sfzx': '0',
         'sfjcwhry': '0',
         'sfjchbry': '0',
         'sfcyglq': '0',
